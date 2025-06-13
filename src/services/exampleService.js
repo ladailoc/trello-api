@@ -1,0 +1,1 @@
+// Xử lý logic và gọi tới các hàm từ model

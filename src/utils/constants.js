@@ -1,0 +1,1 @@
+// Các biến tĩnh và hằng số dùng chung trong ứng dụng
