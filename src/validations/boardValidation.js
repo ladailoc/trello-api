@@ -17,16 +17,11 @@ const createNew = async (req, res, next) => {
   });
 
   try {
-    // console.log("Request body:", req.body);
     await correctCondition.validateAsync(req.body, {
       abortEarly: false, // Validate all errors, not just the first one
     });
-
-    // next(); // Proceed to the next middleware or route handler
-
-    res
-      .status(StatusCodes.CREATED)
-      .json({ message: "Board created successfully" });
+    // Validate dữ liệu xong xuôi thì cho request đi tiếp sang controller
+    next();
   } catch (error) {
     res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
       errors: new Error(error).message,
